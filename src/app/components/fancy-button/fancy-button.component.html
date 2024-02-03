@@ -1,0 +1,11 @@
+<div class="button-wrapper" (click)="toUrl()" matRipple>
+  @if (icon !== undefined) {
+    <div class="icon">
+      <fa-icon [icon]="icon" class="fa-lg"></fa-icon>
+    </div>
+  }
+  
+  <div class="button">
+    {{ text }}
+  </div>
+</div>

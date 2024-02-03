@@ -1,0 +1,60 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$light: map-get(mat.$gray-palette, 300);
+$white: map-get(mat.$gray-palette, 100);
+
+$spacer: 1.2rem;
+$button-size: 3rem;
+
+.button-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  border: 2px solid $light;
+
+  //@media (prefers-reduced-monition:not(reduce)) {
+    transition: border-color .5s, color .5s;
+  //}
+
+  .icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: $button-size;
+    aspect-ratio: 1 / 1;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    height: $button-size;
+    padding-right: $spacer;
+  }
+
+  &:after  {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    z-index: -1;
+    background: $white;
+
+    //@media (prefers-reduced-monition:not(reduce)) {
+      transition: height .5s;
+    //}
+  }
+
+  &:hover {
+    border-color: $white;
+    color: map-get(mat.$blue-gray-palette, 800);
+    cursor: pointer;
+
+    &:after  {
+      height: 100%;
+    }
+  }
+}
