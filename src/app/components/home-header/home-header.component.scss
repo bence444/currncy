@@ -1,0 +1,65 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$header-color: linear-gradient(90deg,
+  map-get(mat.$blue-gray-palette, 700) 0%,
+  map-get(mat.$blue-gray-palette, 600) 50%,
+  map-get(mat.$blue-gray-palette, 700) 100%);
+
+$arrow-width: 100px;
+
+header {
+  height: 420px;
+  background: $header-color;
+  background-size: 200%;
+  padding: 1.75rem 2rem;
+
+  p {
+    margin-top: 3rem;
+    margin-bottom: 3.5rem;
+  }
+
+  @media (min-width: 500px) {
+    clip-path: polygon(calc(100% - 2 * $arrow-width) 50%, calc(100% - $arrow-width) 50%,
+      calc(100% - 2 * $arrow-width) 0, calc(100% - $arrow-width) 0,
+      100% 50%, calc(100% - $arrow-width) 100%,
+      calc(100% - 2 * $arrow-width) 100%, calc(100% - $arrow-width) 50%,
+      calc(100% - 2 * $arrow-width) 50%, calc(100% - 3 * $arrow-width) 100%,
+      0 100%, 0 0,
+      calc(100% - 3 * $arrow-width) 0
+    );
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    @media (min-width: 500px) {
+      width: calc(100% - 3 * $arrow-width);
+    }
+  }
+
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+
+  //@media (prefers-reduced-monition:not(reduce)) {
+    -webkit-animation: header infinite 20s ease-in-out;
+    -moz-animation: header infinite 20s ease-in-out;
+    -o-animation: header infinite 20s ease-in-out;
+    animation: header infinite 20s ease-in-out;
+  //}
+}
+
+@keyframes header {
+  0% { background-position-x: 0%; }
+  50% { background-position-x: 100%; }
+  100% { background-position-x: 0%; }
+}

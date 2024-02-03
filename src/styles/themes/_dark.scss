@@ -1,0 +1,16 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$currncy-dark-primary: mat.define-palette(mat.$orange-palette);
+$currncy-dark-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$currncy-dark-warn: mat.define-palette(mat.$red-palette);
+
+$currncy-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $currncy-dark-primary,
+    accent: $currncy-dark-accent,
+    warn: $currncy-dark-warn,
+  )
+));

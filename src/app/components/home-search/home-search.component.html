@@ -1,0 +1,28 @@
+<div class="search-wrapper">
+  <div class="search">
+    <input
+      [(ngModel)]="name"
+      type="text"
+      placeholder="Search a Pokemon">
+  </div>
+
+  <a class="button" (click)="searchName()">Search</a>
+</div>
+
+<!-- todo: for async -->
+<mat-grid-list
+  [cols]="cols"
+  [rowHeight]="160"
+>
+  @for(card of pokeCards; track card) {
+    <mat-grid-tile [colspan]="3">
+      <app-home-card [card]="card"></app-home-card>
+    </mat-grid-tile>
+  }
+</mat-grid-list>
+
+<mat-paginator
+  [length]="paginator.totalCount"
+  [pageSize]="paginator.pageSize"
+  [pageSizeOptions]="[50, 100, 200]">
+</mat-paginator>
